@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-secondary snap-y;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply text-white;
+  }
+}
