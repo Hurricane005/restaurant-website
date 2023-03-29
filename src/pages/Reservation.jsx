@@ -1,12 +1,17 @@
 import React, { useEffect, useState, useRef } from "react";
 import DatePicker from "react-datepicker";
 import emailjs from "@emailjs/browser";
+import Modal from "../components/Modal";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { Controller, useForm } from "react-hook-form";
 
 const Reservation = () => {
+  const [showModal, setShowModal] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
+
+  const openModal = () => setShowModal(true);
+  const closeModal = () => setShowModal(false);
 
   //   REACT HOOK FORM
   const {
@@ -114,6 +119,7 @@ const Reservation = () => {
             </p>
 
             <input
+              onClick={openModal}
               type="submit"
               value="Send"
               className={
@@ -123,6 +129,18 @@ const Reservation = () => {
               }
             />
           </form>
+          <Modal showModal={showModal} closeModal={closeModal}>
+            <h1 className="pb-4 text-xl text-center text-black">
+              Danke für die Reservierung! Wir melden uns in Kürze mit der
+              Bestätigung!
+            </h1>
+            <button
+              className="px-4 py-2 text-xl font-bold text-gray-500 border-2 rounded-full hover:text-gray-800 hover:bg-primary hover:text-white"
+              onClick={closeModal}
+            >
+              Zurück
+            </button>
+          </Modal>
         </div>
       </div>
     </div>
