@@ -1,1 +1,1 @@
-my first demo restaurant website built with vite, react and tailwind.css
+my first fully responsive demo restaurant website built with vite, react and tailwind.css
